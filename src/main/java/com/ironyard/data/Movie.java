@@ -18,6 +18,18 @@ public class Movie {
     private double rating;
     private String posterUrl;
 
+    public Movie(){
+
+    }
+    public Movie(String name, String description, String category, String mpaaRating, double rating, String posterUrl) {
+        this.name = name;
+        this.description = description;
+        this.category = category;
+        this.mpaaRating = mpaaRating;
+        this.rating = rating;
+        this.posterUrl = posterUrl;
+    }
+
     public long getId() {
         return id;
     }

@@ -57,7 +57,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li><a href="/secure/home.jsp">Home</a></li>
+                <li><a href="/secure/movies">Home</a></li>
                 <li class="active"><a href="#">Create</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -66,31 +66,38 @@
         </div>
     </div>
 </nav>
-<form action="/secure/createlist" method="POST" role="form">
+
+<div class="container">
+    <c:if test="${succes_movie_create_msg != null}">
+        <div class="alert alert-success">
+            <c:out value="${succes_movie_create_msg}"/>
+        </div>
+    </c:if>
+<form action="/secure/movie/createlist" method="POST" role="form">
 <div class="form-group">
     <label for="movieName">Movie Name:</label>
-    <input type="text" class="form-group" id="movieName" name="movieName">
+    <input type="text" class="form-group" id="movieName" name="name">
 </div>
 
 <div class="form-group">
     <label for="movieMpaaRating">Movie MPAA Rating:</label>
-    <input type="text" class="form-group" id="movieMpaaRating" name="movieMpaaRating">
+    <input type="text" class="form-group" id="movieMpaaRating" name="mpaaRating">
 </div>
 <div class="form-group">
     <label for="movieCategory">Movie Category:</label>
-    <input type="text" class="form-group" id="movieCategory" name="movieCategory">
+    <input type="text" class="form-group" id="movieCategory" name="category">
 </div>
 <div class="form-group">
     <label for="movieStarRating">Movie Rating out of 10:</label>
-    <input type="number" class="form-group" id="movieStarRating" name="movieStarRating">
+    <input type="number" step ="0.1" class="form-group" id="movieStarRating" name="rating">
 </div>
 <div class="form-group">
     <label for="moviePoster">URL for Movie Poster:</label>
-    <input type="url" class="form-control" id="moviePoster" name="moviePoster">
+    <input type="url" class="form-control" id="moviePoster" name="posterUrl">
 </div>
 <div class="form-group">
     <label for="movieDescription">Movie Description:</label>
-    <textarea class="form-control" rows="5" id="movieDescription" name="movieDescription"></textarea>
+    <textarea class="form-control" rows="5" id="movieDescription" name="description"></textarea>
 </div>
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
