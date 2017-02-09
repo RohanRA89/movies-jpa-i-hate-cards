@@ -59,6 +59,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="/secure/movies">Home</a></li>
                 <li class="active"><a href="#">Create</a></li>
+                <li><a href="/secure/users">Users</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/secure/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
@@ -76,28 +77,28 @@
 <form action="/secure/movie/createlist" method="POST" role="form">
 <div class="form-group">
     <label for="movieName">Movie Name:</label>
-    <input type="text" class="form-group" id="movieName" name="name">
+    <input type="text" class="form-group" id="movieName" name="name" value="<c:out value="${editMovie.name}"/>">
 </div>
 
 <div class="form-group">
     <label for="movieMpaaRating">Movie MPAA Rating:</label>
-    <input type="text" class="form-group" id="movieMpaaRating" name="mpaaRating">
+    <input type="text" class="form-group" id="movieMpaaRating" name="mpaaRating" value="<c:out value="${editMovie.mpaaRating}"/>">
 </div>
 <div class="form-group">
     <label for="movieCategory">Movie Category:</label>
-    <input type="text" class="form-group" id="movieCategory" name="category">
+    <input type="text" class="form-group" id="movieCategory" name="category" value="<c:out value="${editMovie.category}"/>">
 </div>
 <div class="form-group">
     <label for="movieStarRating">Movie Rating out of 10:</label>
-    <input type="number" step ="0.1" class="form-group" id="movieStarRating" name="rating">
+    <input type="number" step ="0.1" class="form-group" id="movieStarRating" name="rating"value="<c:out value="${editMovie.rating}"/>">
 </div>
 <div class="form-group">
     <label for="moviePoster">URL for Movie Poster:</label>
-    <input type="url" class="form-control" id="moviePoster" name="posterUrl">
+    <input type="url" class="form-control" id="moviePoster" name="posterUrl"value="<c:out value="${editMovie.posterUrl}"/>">
 </div>
 <div class="form-group">
     <label for="movieDescription">Movie Description:</label>
-    <textarea class="form-control" rows="5" id="movieDescription" name="description"></textarea>
+    <textarea class="form-control" rows="5" id="movieDescription" name="description"value="<c:out value="${editMovie.description}"/>"></textarea>
 </div>
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
@@ -108,7 +109,7 @@
 
 
 <footer class="container-fluid text-center">
-    <p>Welcome To Skippers Web App</p>
+    <p>Welcome To Ayub's Web App</p>
 </footer>
 
 </body>

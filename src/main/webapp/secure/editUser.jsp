@@ -57,7 +57,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li><a href="/secure/movies">Home</a></li>
                 <li><a href="/secure/create.jsp">Create</a></li>
                 <li><a href="/secure/users">Users</a></li>
             </ul>
@@ -68,31 +68,37 @@
     </div>
 </nav>
 
-<div class="container">
-    <div class="row">
-        <c:forEach items="${mList}" var="aMovie">
-            <div class="card col-sm-12 col-md-4">
-                <h4 class="card-title"><c:out value="${aMovie.name}"/></h4>
-                <img class="card-img-top" width="100" src="<c:out value="${aMovie.posterUrl}"/>" alt="Card image cap">
-                <div class="card-block">
-                    <p class="card-text"><c:out value="${aMovie.description}"/></p>
-                    <p class="card-text"><small class="text-muted"><c:out value="${aMovie.mpaaRating}"/></small></p>
-                    <p class="card-text"><a class="btn btn-info" href="/secure/movie/select?id=<c:out value="${aMovie.id}"/>">Edit</a> </p>
-                    <p class="card-text"><a class="btn btn-danger" href="/secure/movie/delete?id=<c:out value="${aMovie.id}"/>">Delete</a> </p>
-                </div>
-            </div>
-        </c:forEach>
+<%--<div class="container">--%>
+    <%--<c:if test="${succes_movie_create_msg != null}">--%>
+    <%--<div class="alert alert-success">--%>
+        <%--<c:out value="${succes_movie_create_msg}"/>--%>
+    <%--</div>--%>
+    <%--</c:if>--%>
+    <form action="/secure/user/select" method="POST" role="form">
+        <div class="form-group">
+            <label for="username">Update Username:</label>
+            <input type="text" class="form-group" id="username" name="username" value="<c:out value="${editUser.username}"/>">
+        </div>
+
+        <div class="form-group">
+            <label for="displayName">Update Display Name:</label>
+            <input type="text" class="form-group" id="displayName" name="displayName" value="<c:out value="${editUser.displayName}"/>">
+        </div>
+        <div class="form-group">
+            <label for="password">Update Password:</label>
+            <input type="text" class="form-group" id="password" name="password" value="<c:out value="${editUser.password}"/>">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
 
 
-    </div>
-</div>
 
 
 
 
-<footer class="container-fluid text-center">
-    <p>Welcome To Ayub's Web App</p>
-</footer>
+    <footer class="container-fluid text-center">
+        <p>Welcome To Ayub's Web App</p>
+    </footer>
 
 </body>
 </html>

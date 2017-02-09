@@ -23,6 +23,21 @@ public class MovieController {
     @Autowired
     MovieRepo movieRepo;
 
+    @RequestMapping(path = "/secure/movie/delete", method = RequestMethod.GET)
+    public String deleteMovies(Model deleteList, @RequestParam Long id){
+        movieRepo.delete(id);
+        deleteList.addAttribute("success_delete_msg","Movie successfully deleted");
+        return "forward:/secure/movies";
+    }
+
+    @RequestMapping(path = "/secure/movie/select", method = RequestMethod.GET)
+    public String selectMovies(Model selectMovie, @RequestParam Long id){
+        Movie editMovie = movieRepo.findOne(id);
+        selectMovie.addAttribute("editMovie",editMovie);
+        return "/secure/create";
+    }
+
+
     @RequestMapping(path = "/secure/movie/createlist", method = RequestMethod.POST)
     public String createMovies(Model createList,
         @RequestParam String name, @RequestParam String description, @RequestParam String mpaaRating,

@@ -1,3 +1,18 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: rohanayub
+  Date: 2/8/17
+  Time: 2:42 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+</body>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
@@ -57,9 +72,9 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li><a href="/secure/movies">Home</a></li>
                 <li><a href="/secure/create.jsp">Create</a></li>
-                <li><a href="/secure/users">Users</a></li>
+                <li class="active"><a href="#">Users</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/secure/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
@@ -70,15 +85,14 @@
 
 <div class="container">
     <div class="row">
-        <c:forEach items="${mList}" var="aMovie">
+        <c:forEach items="${uList}" var="aUser">
             <div class="card col-sm-12 col-md-4">
-                <h4 class="card-title"><c:out value="${aMovie.name}"/></h4>
-                <img class="card-img-top" width="100" src="<c:out value="${aMovie.posterUrl}"/>" alt="Card image cap">
+                <h4 class="card-title"><strong>Username: </strong><c:out value="${aUser.username}"/></h4>
                 <div class="card-block">
-                    <p class="card-text"><c:out value="${aMovie.description}"/></p>
-                    <p class="card-text"><small class="text-muted"><c:out value="${aMovie.mpaaRating}"/></small></p>
-                    <p class="card-text"><a class="btn btn-info" href="/secure/movie/select?id=<c:out value="${aMovie.id}"/>">Edit</a> </p>
-                    <p class="card-text"><a class="btn btn-danger" href="/secure/movie/delete?id=<c:out value="${aMovie.id}"/>">Delete</a> </p>
+                    <p class="card-text"><strong>Display Name: </strong><c:out value="${aUser.displayName}"/></p>
+                    <p class="card-text"><small class ="text"><strong>Password: </strong></small><small class="text-muted"><c:out value="${aUser.password}"/></small></p>
+                    <p class="card-text"><a class="btn btn-info" href="/secure/user/select?id=<c:out value="${aUser.id}"/>">Edit</a> </p>
+                    <p class="card-text"><a class="btn btn-danger" href="/secure/user/delete?id=<c:out value="${aUser.id}"/>">Delete</a> </p>
                 </div>
             </div>
         </c:forEach>
