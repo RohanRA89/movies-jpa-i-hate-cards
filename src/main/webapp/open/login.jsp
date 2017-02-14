@@ -60,8 +60,8 @@
     </c:if>
     <form class="form-signin" action="/open/authenticate" method="post">
         <h2 class="form-signin-heading">Please sign in with your account information</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="text" id="inputEmail" class="form-control" placeholder="Email address" name="username" required autofocus>
+        <label for="inputEmail" class="sr-only">Display Name</label>
+        <input type="text" id="inputEmail" class="form-control" placeholder="Display Name" name="username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
@@ -69,10 +69,10 @@
 
     <form class="form-signin" action="/open/usercreation" method="get">
         <h2 class="form-signin-heading"><strong>New user? Create your account below!</strong></h2>
-        <label for="inputUsername" class="sr-only">Enter Your Username:</label>
-        <input type="text" id="inputUsername" class="form-control" placeholder="New Username" name="username" required autofocus>
+        <label for="inputUsername" class="sr-only">Enter Your Name:</label>
+        <input type="text" id="inputUsername" class="form-control" placeholder="Name" name="username" required autofocus>
         <label for="createDisplayName" class="sr-only">Display Name</label>
-        <input type="text" id="createDisplayName" class="form-control" placeholder="Perferred Display Name" required name="displayName">
+        <input type="text" id="createDisplayName" class="form-control" placeholder="Display Name" required name="displayName">
         <label for="createPassword" class="sr-only">Password</label>
         <input type="password" id="createPassword" class="form-control" placeholder="Password" required name="password">
 

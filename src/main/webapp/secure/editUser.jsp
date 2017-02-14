@@ -74,19 +74,26 @@
         <%--<c:out value="${succes_movie_create_msg}"/>--%>
     <%--</div>--%>
     <%--</c:if>--%>
-    <form action="/secure/user/select" method="POST" role="form">
+    <form action="/secure/editUser/update" method="POST" role="form">
+        <c:forEach items="${username}"/>
+        <c:forEach items="${displayName}"/>
+        <c:forEach items="${password}"/>
         <div class="form-group">
             <label for="username">Update Username:</label>
-            <input type="text" class="form-group" id="username" name="username" value="<c:out value="${editUser.username}"/>">
+            <input type="text" class="form-group" id="username" name="username" value="<c:out value="${username}"/>">
         </div>
 
         <div class="form-group">
             <label for="displayName">Update Display Name:</label>
-            <input type="text" class="form-group" id="displayName" name="displayName" value="<c:out value="${editUser.displayName}"/>">
+            <input type="text" class="form-group" id="displayName" name="displayName" value="<c:out value="${displayName}"/>">
         </div>
         <div class="form-group">
             <label for="password">Update Password:</label>
-            <input type="text" class="form-group" id="password" name="password" value="<c:out value="${editUser.password}"/>">
+            <input type="text" class="form-group" id="password" name="password" value="<c:out value="${password}"/>">
+        </div>
+        <div class="form-group">
+            <label for="id"></label>
+            <input type="hidden" class="form-group" id="id" name="id" value="<c:out value="${userID}"/>">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

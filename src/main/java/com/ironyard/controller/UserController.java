@@ -32,10 +32,29 @@ public class UserController {
     }
 
     @RequestMapping(path = "/secure/user/select", method = RequestMethod.GET)
-    public String selectUser(Model selectUser, @RequestParam Long id){
+    public String selectUser(Model showUsername, Model showDisplayName, Model showPassword, Model showID, @RequestParam Long id){
         MovieUser editUser = userRepo.findOne(id);
-        selectUser.addAttribute("editUser",editUser);
-        return "/secure/users";
+        String name = editUser.getDisplayName();
+        String username = editUser.getUsername();
+        String password = editUser.getPassword();
+        Long userId = editUser.getId();
+        showUsername.addAttribute("username",name);
+        showDisplayName.addAttribute("displayName", username);
+        showPassword.addAttribute("password", password);
+        showID.addAttribute("userID", userId);
+
+        return "/secure/editUser";
+    }
+    @RequestMapping(path="/secure/editUser/update", method = RequestMethod.POST)
+    public String updateUser(@RequestParam String username, @RequestParam String displayName, @RequestParam String password, @RequestParam Long id ){
+        MovieUser update = userRepo.findOne(id);
+        update.setUsername(username);
+        update.setDisplayName(displayName);
+        update.setPassword(password);
+        userRepo.save(update);
+        return "redirect:/secure/users";
+
+
     }
 
 
@@ -73,6 +92,8 @@ public class UserController {
         }
         return destinationView;
     }
+
+
     @RequestMapping(path = "/secure/users")
     public String listMovies(Model xyz) {
         String destination = "users";
